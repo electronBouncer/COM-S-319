@@ -46,10 +46,12 @@
       <a href="#" onclick="operation3()">Operation 4</a>
     </div>
   
+    <script>
     function showCardsContainingDescriptionA() {
-    const inputField = document.getElementById("inputField");
-    inputField.style.display = "block";'
+      const inputField = document.getElementById("inputField");
+      inputField.style.display = "block";
     }
+    </script>
 
     <!-- Copy from Album - Bootstrap -->
     <div class="album py-5 bg-body-tertiary">
@@ -61,19 +63,11 @@
       </div>
     </div>
 
-    <div class="input-field" id="inputField">
-       .input-field {
-        display: none;
-        margin: 10px 0;
-       }
+    <div class="input-field" id="inputField" style="display: none;">
+      <label for="descriptionInput">Enter description:</label>
+      <input type="text" id="descriptionInput" placeholder="Enter description here...">
+      <button onclick="showCardsContainingDescriptionB()">Submit</button>
     </div>
-
-    
-
-    <label for="descriptionInput">Enter description:</label>
-    <input type="text" id="descriptionInput" placeholder="Enter description here...">
-    <button onclick="showCardsContainingDescriptionB()">Submit</button>
-
 
     <script src="./asianp12_Activity11_Challenges_MoviesFromJSON.js"></script>
 
