@@ -1,0 +1,36 @@
+
+/* Add some custom styling for the product images */
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Adjust card shadow for a smoother look */
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Add hover effect on the cards */
+  .card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+  }
+  
+  /* Style the buttons */
+  .btn-group .btn-outline-secondary {
+    background-color: #f8f9fa;
+    border-color: #6c757d;
+  }
+  
+  .btn-group .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  /* Improve footer style */
+  footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    text-align: center;
+  }
