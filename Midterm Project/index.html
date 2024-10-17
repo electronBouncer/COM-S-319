@@ -27,6 +27,16 @@
         </nav>
 
         <main>
+            <!-- User Selection -->
+            <section id="userSelection">
+                <label for="userSelect">Select User:</label>
+                <select id="userSelect">
+                    <option value="user1">User 1</option>
+                    <option value="user2">User 2</option>
+                    <option value="user3">User 3</option>
+                </select>
+            </section>
+
             <!-- Dashboard Overview Section -->
             <section id="dashboard">
                 <h2>Dashboard Overview</h2>
@@ -46,12 +56,6 @@
                 </div>
             </section>
 
-            <!-- Analytics Section -->
-            <section id="analytics">
-                <h2>Financial Analytics</h2>
-                <canvas id="expenseChart"></canvas>
-                <canvas id="incomeChart"></canvas>
-            </section>
         </main>
 
         <footer>
@@ -62,10 +66,42 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const totalIncomeElement = document.getElementById('totalIncome');
+            const totalExpensesElement = document.getElementById('totalExpenses');
+            const userSelect = document.getElementById('userSelect');
 
-            // Load total income from local storage
-            let totalIncome = parseFloat(localStorage.getItem('totalIncome')) || 0;
-            totalIncomeElement.textContent = `$${totalIncome}`;
+            // Load user data from local storage
+            function loadUserData(user) {
+                let totalIncome = parseFloat(localStorage.getItem(`${user}_totalIncome`)) || 0;
+                let totalExpenses = parseFloat(localStorage.getItem(`${user}_totalExpenses`)) || 0;
+                totalIncomeElement.textContent = `$${totalIncome}`;
+                totalExpensesElement.textContent = `$${totalExpenses}`;
+            }
+
+            // Event listener for user selection
+            userSelect.addEventListener('change', (event) => {
+                loadUserData(event.target.value);
+            });
+
+            // Initial load for the default user
+            loadUserData(userSelect.value);
+
+            // Update total income when an expense is logged
+            const expenseForm = document.getElementById('expenseForm');
+            if (expenseForm) {
+                expenseForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    const expenseAmount = parseFloat(document.getElementById('expenseAmount').value);
+                    let totalExpenses = parseFloat(localStorage.getItem(`${userSelect.value}_totalExpenses`)) || 0;
+                    let totalIncome = parseFloat(localStorage.getItem(`${userSelect.value}_totalIncome`)) || 0;
+                    totalExpenses += expenseAmount;
+                    totalIncome -= expenseAmount;
+                    totalExpensesElement.textContent = `$${totalExpenses}`;
+                    totalIncomeElement.textContent = `$${totalIncome}`;
+                    localStorage.setItem(`${userSelect.value}_totalExpenses`, totalExpenses);
+                    localStorage.setItem(`${userSelect.value}_totalIncome`, totalIncome);
+                    event.target.reset();
+                });
+            }
         });
     </script>
 </body>
