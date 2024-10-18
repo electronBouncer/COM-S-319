@@ -1,0 +1,19 @@
+{
+    "users": {
+        "user1": {
+            "totalIncome": 0,
+            "totalExpenses": 0,
+            "savingsGoal": 0
+        },
+        "user2": {
+            "totalIncome": 0,
+            "totalExpenses": 0,
+            "savingsGoal": 0
+        },
+        "user3": {
+            "totalIncome": 0,
+            "totalExpenses": 0,
+            "savingsGoal": 0
+        }
+    }
+}

@@ -1,56 +1,68 @@
 body {
-
     font-family: Arial, sans-serif;
-
     margin: 0;
-
     padding: 0;
-
     background-color: #f4f4f4;
-
 }
-
-
 
 .container {
-
-    width: 90%;
-
-    margin: auto;
-
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
-
-
 
 header {
-    text-align: center;
-    background-color: #6c63ff;
+    background-color: #4CAF50;
     color: white;
     padding: 20px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+header img {
+    margin-right: 15px;
+}
 
-
-nav ul {
-    list-style: none;
-    padding: 0;
+nav {
     background-color: #333;
 }
 
-nav ul li {
-    display: inline;
-    padding: 10px 20px;
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
-
+nav ul li {
+    margin: 0;
+}
 
 nav ul li a {
     color: white;
     text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+    color: #fff;
+    transform: scale(1.1);
 }
 
 main {
-    margin: 20px 0;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 20px;
 }
 
 .summary {
@@ -59,45 +71,50 @@ main {
 }
 
 .card {
-    background-color: white;
+    background-color: #fff;
     padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    border-radius: 10px;
-    width: 30%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 10px;
 }
 
-form {
-    background-color: white;
-    padding: 20px;
-    margin: 20px 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-
-form input,
-form button {
-    display: block;
-    margin: 10px 0;
-    padding: 10px;
+.progress-bar {
     width: 100%;
-    box-sizing: border-box;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
 }
 
-
-
-canvas {
-    margin-top: 20px;
-    width: 100%;
-    max-width: 600px;
+.progress {
+    height: 20px;
+    background-color: #4CAF50;
+    width: 0;
+    transition: width 0.3s;
 }
 
 footer {
-
     text-align: center;
+    padding: 10px 0;
     background-color: #333;
     color: white;
-    padding: 10px 0;
-    margin-top: 40px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .summary {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
+    }
 }
