@@ -20,3 +20,8 @@ body.expense-page {
 body.income-page {
     background-image: url('images/katie-harp-W2L_vvgK4-c-unsplash.jpg');
 }
+
+/* For savings-goal.html */
+body.savings-goal-page {
+    background-image: url('images/katie-harp-CXOMYKUE3_Y-unsplash.jpg');
+}
